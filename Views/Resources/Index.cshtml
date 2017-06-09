@@ -1,0 +1,64 @@
+@model IEnumerable<ContosoUniversity.Models.Resource>
+
+
+
+
+
+@{
+    ViewData["Title"] = "resource";
+}
+<h2>Resources</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@*<select asp-for="ResourceType" asp-items="Html.GetEnumSelectList<ResourceType>()">
+    <option selected="selected" value="">Please select</option>
+</select>*@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Culture)
+            </th>
+			@*<th>
+				@Html.DisplayNameFor(model => model.ResourceType)
+			</th>*@
+       
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+         
+                <td>
+                    @Html.DisplayFor(modelItem => item.Culture.Name)
+                </td>
+
+				@*<td>
+					@Html.DisplayFor(modelItem => item.ResourceType)
+				</td>*@
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

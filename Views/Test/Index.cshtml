@@ -1,0 +1,9 @@
+@model RegisterViewModel
+
+@using ContosoUniversity.Models 
+
+
+
+<select asp-for="ResourceType" asp-items="Html.GetEnumSelectList<ResourceType>()">
+    <option selected="selected" value="">Please select</option>
+</select>
